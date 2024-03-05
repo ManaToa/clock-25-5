@@ -37,7 +37,7 @@ function SettingButton({ label, value, type }: SettingButtonProps) {
   }
 
   return (
-    <button className='block w-[10rem] p-1 rounded-sm hover:bg-ligthColorHover'>
+    <button className='block w-[11rem] p-1 rounded-sm hover:bg-ligthColorHover'>
       <div className='uppercase font-bold text-xl mb-4'>{label}</div>
       <div className='flex justify-center items-center'>
         <FaMinusCircle
