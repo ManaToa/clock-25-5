@@ -23,6 +23,7 @@ interface SettingButtonProps {
 
 function SettingButton({ label, value, type }: SettingButtonProps) {
   const dispatch = useDispatch()
+
   function handleDecrement() {
     type === 'session'
       ? dispatch(decrementSession())
@@ -88,10 +89,6 @@ function Session() {
       .padStart(2, '0')}`
   }
 
-  function handleStartStop() {
-    dispatch(toggleRunning())
-  }
-
   useEffect(() => {
     let timer: number
     let timeout: number
@@ -121,9 +118,9 @@ function Session() {
       </div>
       <div className='flex text-3xl mt-7 cursor-pointer items-center mb-3 hover:*:text-mainColor *:mx-2'>
         {isRunning ? (
-          <FaPause onClick={() => handleStartStop()} />
+          <FaPause onClick={() => dispatch(toggleRunning())} />
         ) : (
-          <FaPlay onClick={() => handleStartStop()} />
+          <FaPlay onClick={() => dispatch(toggleRunning())} />
         )}
         <VscDebugRestart
           className='text-4xl'
